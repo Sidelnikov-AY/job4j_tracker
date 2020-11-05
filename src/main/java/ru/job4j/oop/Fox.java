@@ -1,6 +1,6 @@
-package oop;
+package ru.job4j.oop;
 
-public class Hare {
+public class Fox {
     public void tryEat(Ball ball) {
     }
 }

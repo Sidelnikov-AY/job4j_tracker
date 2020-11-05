@@ -1,6 +1,4 @@
-package oop;
-
-import oop.Girl;
+package ru.job4j.oop;
 
 public class Wolf {
     public void eat(Girl girl) {
