@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -10,6 +11,12 @@ public class StartUI {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
         String currentDateTimeFormatted = currentTime.format(formatter);
         System.out.println(currentDateTimeFormatted);
-        System.out.println(first);
+        first.setName("One");
+
+        Tracker trackerOne = new Tracker();
+        trackerOne.add(first);
+        Item testOutput = trackerOne.findById(1);
+        System.out.println(testOutput);
+
     }
 }

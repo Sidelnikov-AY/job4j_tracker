@@ -31,12 +31,12 @@ public class Item {
         return name;
     }
 
-    public LocalDateTime getCreatedTime() {
-        return created;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public LocalDateTime getCreatedTime() {
+        return created;
     }
 
     @Override
