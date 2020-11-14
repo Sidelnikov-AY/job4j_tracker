@@ -24,8 +24,7 @@ public class Tracker {
         for (int index = 0; index < size; index++) {
             Item item = items[index];
             if (item.getName().equals(key)) {
-                index2++;
-                itemsOfKey[index2] = item;
+                itemsOfKey[index2++] = item;
             }
         }
         itemsOfKey = Arrays.copyOf(itemsOfKey, index2);
@@ -54,7 +53,7 @@ public class Tracker {
         if (rsl) {
             item.setId(id);
             items[index] = item;
-            }
+        }
         return rsl;
     }
 
