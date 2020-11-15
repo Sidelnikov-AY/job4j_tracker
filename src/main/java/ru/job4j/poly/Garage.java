@@ -5,7 +5,6 @@ public class Garage {
         Venicle airbus = new Plane();
         Venicle sapsan = new Train();
         Venicle ikarusGarmoshka = new Bus(100);
-
         Venicle[] venicls = new Venicle[]{airbus, sapsan, ikarusGarmoshka};
         for (Venicle v : venicls) {
             v.move();
