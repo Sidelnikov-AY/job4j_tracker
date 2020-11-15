@@ -21,7 +21,6 @@ public class StartUI {
                 tracker.add(item);
             } else if (select == 1) {
                 Item[] showItem = tracker.findAll();
-                showItem = tracker.findAll();
                 for (Item item : showItem) {
                     System.out.println(item);
                 }
