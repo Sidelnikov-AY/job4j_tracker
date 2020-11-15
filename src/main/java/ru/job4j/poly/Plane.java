@@ -1,26 +1,25 @@
 package ru.job4j.poly;
 
-public class Bus implements Venicle {
-    int mspeed = 90;
+public class Plane implements Venicle {
+    int mspeed = 750;
 
-    public Bus() {
+    public Plane() {
     }
 
-    public Bus (int mspeed) {
+    public Plane(int mspeed) {
         this.mspeed = mspeed;
     }
 
+
+
     @Override
     public void move() {
-        System.out.println("Р-Р-Р!");
-
+        System.out.println("У-У-У-У!");
     }
 
     @Override
-    public void maxSpeed(int speed) {
+    public void maxSpeed(int mspeed) {
         System.out.println("Максимальаня скорость: " + this.mspeed);
 
     }
 }
-
-

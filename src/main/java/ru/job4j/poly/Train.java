@@ -1,18 +1,18 @@
 package ru.job4j.poly;
 
-public class Bus implements Venicle {
-    int mspeed = 90;
+public class Train implements Venicle {
+    int mspeed = 120;
 
-    public Bus() {
+    public Train() {
     }
 
-    public Bus (int mspeed) {
+    public Train(int mspeed) {
         this.mspeed = mspeed;
     }
 
     @Override
     public void move() {
-        System.out.println("Р-Р-Р!");
+        System.out.println("ТУ-ТУ-ТУУ!");
 
     }
 
@@ -22,5 +22,3 @@ public class Bus implements Venicle {
 
     }
 }
-
-
