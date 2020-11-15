@@ -20,7 +20,7 @@ public class StartUI {
                 Item item = new Item(name);
                 tracker.add(item);
             } else if (select == 1) {
-                Item[] showItem = new Item[tracker.findAll().length];
+                Item[] showItem = tracker.findAll();
                 showItem = tracker.findAll();
                 for (Item item : showItem) {
                     System.out.println(item);
