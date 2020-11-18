@@ -4,6 +4,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class StartUI {
+    private final Output out;
+
+    public StartUI(Output out) {
+        this.out = out;
+    }
 
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
@@ -29,10 +34,11 @@ public class StartUI {
         String currentDateTimeFormatted = currentTime.format(formatter);
         //System.out.println(currentDateTimeFormatted);
 
+        Output output = new ConsoleOutput();
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(),
+                new CreateAction(output),
                 new FindAllAction(),
                 new ReplaceAction(),
                 new DeleteAction(),
@@ -40,6 +46,6 @@ public class StartUI {
                 new FindByNameAction(),
                 new Exit()
         };
-        new StartUI().init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, actions);
     }
 }
