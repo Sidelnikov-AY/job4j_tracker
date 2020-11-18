@@ -3,6 +3,7 @@ package ru.job4j.tracker;
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
@@ -58,4 +59,59 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
+
+    @Test
+    public void whenFindAllItem() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("New item"));
+        Item item1 = tracker.add(new Item("New item1"));
+        Item[] items = {item, item1};
+        Input in = new StubInput(
+                new String[] {"0", "1"}
+        );
+        UserAction[] actions = {
+                new FindAllAction(),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findAll(), is(items));
+    }
+
+    @Test
+    public void whenItemFindByName() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("New item"));
+        Item item1 = tracker.add(new Item("New item"));
+        Item[] items = {item, item1};
+        Input in = new StubInput(
+                new String[] {"0", "New item", "1"}
+        );
+        UserAction[] actions = {
+                new FindByNameAction(),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findByName(item.getName()), is(items));
+
+    }
+
+    @Test
+    public void whenItemFindById(){
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("New item"));
+        Input in = new StubInput(
+                new String[] {"0", "1", "1"}
+        );
+        UserAction[] actions = {
+                new FindByIDAction(),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()), is(item));
+
+    }
+
 }
