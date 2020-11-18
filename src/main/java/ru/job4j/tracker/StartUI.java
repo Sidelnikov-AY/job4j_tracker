@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import ru.job4j.inheritance.TextReport;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -40,7 +38,7 @@ public class StartUI {
                 new DeleteAction(),
                 new FindByIDAction(),
                 new FindByNameAction(),
-                new ExitAction()
+                new Exit()
         };
         new StartUI().init(input, tracker, actions);
     }
