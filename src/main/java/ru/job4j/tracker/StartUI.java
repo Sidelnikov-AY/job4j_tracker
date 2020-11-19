@@ -17,22 +17,22 @@ public class StartUI {
             int select = input.askInt("Select: ");
             UserAction action = actions[select];
             run = action.execute(input, tracker);
-        }0
+        }
     }
 
     private void showMenu(UserAction[] actions) {
-        System.out.println("Menu.");
+        out.println("Menu.");
         for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + ". " + actions[index].name());
+            out.println(index + ". " + actions[index].name());
         }
     }
 
     public static void main(String[] args) {
-        Item first = new Item();
-        LocalDateTime currentTime = first.getCreatedTime();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
-        String currentDateTimeFormatted = currentTime.format(formatter);
-        //System.out.println(currentDateTimeFormatted);
+//        Item first = new Item();
+//        LocalDateTime currentTime = first.getCreatedTime();
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
+//        String currentDateTimeFormatted = currentTime.format(formatter);
+//        //System.out.println(currentDateTimeFormatted);
 
         Output output = new ConsoleOutput();
         Input input = new ConsoleInput();
@@ -44,7 +44,7 @@ public class StartUI {
                 new DeleteAction(output),
                 new FindByIDAction(output),
                 new FindByNameAction(output),
-                new Exit()
+                new Exit(output)
         };
         new StartUI(output).init(input, tracker, actions);
     }
