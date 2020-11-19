@@ -18,9 +18,9 @@ public class ReplaceAction implements UserAction {
         String newItemName = input.askStr("Input item's name: ");
         Item newItem = new Item(newItemName);
         if (tracker.replace(itemId, newItem)) {
-            System.out.println("Operation complete");
+            out.println("Operation complete");
         } else {
-            System.out.println("Error");
+            out.println("Error");
         }
         return true;
     }
