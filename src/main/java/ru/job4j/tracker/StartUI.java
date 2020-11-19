@@ -17,7 +17,7 @@ public class StartUI {
             int select = input.askInt("Select: ");
             UserAction action = actions[select];
             run = action.execute(input, tracker);
-        }
+        }0
     }
 
     private void showMenu(UserAction[] actions) {
@@ -39,11 +39,11 @@ public class StartUI {
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
-                new FindAllAction(),
-                new ReplaceAction(),
-                new DeleteAction(),
-                new FindByIDAction(),
-                new FindByNameAction(),
+                new FindAllAction(output),
+                new ReplaceAction(output),
+                new DeleteAction(output),
+                new FindByIDAction(output),
+                new FindByNameAction(output),
                 new Exit()
         };
         new StartUI(output).init(input, tracker, actions);
