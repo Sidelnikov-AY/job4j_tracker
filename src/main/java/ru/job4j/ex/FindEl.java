@@ -16,7 +16,7 @@ public class FindEl {
     }
 
     public static void main(String[] args) throws ElementNotFoundException{
-        String[] array = new String[] {"qq", "ww","ww"};
+        String[] array = new String[] {"qq", "www","www"};
         System.out.println(indexOf(array, "ww"));
 
     }
