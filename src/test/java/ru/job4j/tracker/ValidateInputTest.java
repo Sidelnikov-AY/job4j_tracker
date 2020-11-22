@@ -11,7 +11,7 @@ public class ValidateInputTest {
     public void whenInvalidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"one", "1"}
+                new String[]{"one", "1"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
@@ -22,7 +22,7 @@ public class ValidateInputTest {
     public void whenOkInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"1"}
+                new String[]{"1"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
@@ -33,7 +33,7 @@ public class ValidateInputTest {
     public void whenOkExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0"}
+                new String[]{"0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
@@ -48,5 +48,27 @@ public class ValidateInputTest {
                 )
         ));
     }
+
+    @Test
+    public void whenInvalidInputTwo() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"one", "1"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new CreateAction(out),
+                new Exit(out),
+        };
+        ValidateInput input = new ValidateInput(out, in);
+        new StartUI(out).init(input, tracker, actions);
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator() +
+                        "0. === Create ===" + System.lineSeparator() +
+                        "1. === Exit Program ===" + System.lineSeparator() +
+                        "Please enter validate data again." + System.lineSeparator()
+        ));
+    }
+
 }
 
