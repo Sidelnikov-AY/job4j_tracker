@@ -16,9 +16,8 @@ public class UserStore {
         if (lessThanThree || !user.isValid()) {
             throw new UserInvalidException("User " + user.getUsername() + " is invalid");
         }
-         else {
-             return true;
-        }
+        return true;
+
     }
 
     public static void main(String[] args) {
