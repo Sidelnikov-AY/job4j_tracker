@@ -35,7 +35,7 @@ public class ValidateInputTest {
         Input in = new StubInput(
                 new String[]{"0"}
         );
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.INSTANCE;
         UserAction[] actions = {
                 new Exit(out)
         };
@@ -55,7 +55,7 @@ public class ValidateInputTest {
         Input in = new StubInput(
                 new String[]{"one", "1"}
         );
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.INSTANCE;
         UserAction[] actions = {
                 new CreateAction(out),
                 new Exit(out),

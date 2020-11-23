@@ -3,10 +3,47 @@ package ru.job4j.tracker;
 import javax.swing.*;
 import java.util.Arrays;
 
-public class Tracker {
+// 1-ый способ создания Singleton - через enum
+public enum Tracker {
+    INSTANCE;
+
     private final Item[] items = new Item[100];
     private int ids = 1;
     private int size = 0;
+
+    // 2-ый способ создания Singleton - создаем и инициализируем объект
+//    public class Tracker() {
+//    private static final Tracker INSTANCE = new Tracker();
+//    private Tracker() {
+//    }
+//    public static Tracker getInstance() {
+//        return INSTANCE;
+//    }
+
+    // 3-ый способ создания Singleton - в поле внутреннего класса
+//    public class Tracker() {
+//        private Tracker() {
+//        }
+//        public static Tracker getInstance() {
+//            return Holder.INSTANCE;
+//        }
+//        private static final class Holder {
+//            private static final Tracker INSTANCE = new Tracker();
+//        }
+
+    // 4-ый способ создания Singleton - через конструктор по умолчанию с модиф. private
+//    public class Tracker() {
+//    private static Tracker instance;
+//    private Tracker() {
+//    }
+//
+//    public static Tracker getInstance() {
+//        if (instance == null) {
+//            instance = new Tracker();
+//        }
+//        return instance;
+//    }
+
 
     public Item add(Item item) {
         item.setId(ids++);
