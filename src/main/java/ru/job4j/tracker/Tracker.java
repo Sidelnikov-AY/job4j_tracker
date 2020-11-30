@@ -1,82 +1,51 @@
 package ru.job4j.tracker;
 
-import javax.swing.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-// 1-ый способ создания Singleton - через enum
+
 public enum Tracker {
     INSTANCE;
 
-    private final Item[] items = new Item[100];
+    List<Item> items = new ArrayList<Item>();
     private int ids = 1;
     private int size = 0;
-
-    // 2-ый способ создания Singleton - создаем и инициализируем объект
-//    public class Tracker() {
-//    private static final Tracker INSTANCE = new Tracker();
-//    private Tracker() {
-//    }
-//    public static Tracker getInstance() {
-//        return INSTANCE;
-//    }
-
-    // 3-ый способ создания Singleton - в поле внутреннего класса
-//    public class Tracker() {
-//        private Tracker() {
-//        }
-//        public static Tracker getInstance() {
-//            return Holder.INSTANCE;
-//        }
-//        private static final class Holder {
-//            private static final Tracker INSTANCE = new Tracker();
-//        }
-
-    // 4-ый способ создания Singleton - через конструктор по умолчанию с модиф. private
-//    public class Tracker() {
-//    private static Tracker instance;
-//    private Tracker() {
-//    }
-//
-//    public static Tracker getInstance() {
-//        if (instance == null) {
-//            instance = new Tracker();
-//        }
-//        return instance;
-//    }
 
 
     public Item add(Item item) {
         item.setId(ids++);
-        items[size++] = item;
+        //items[size++] = item;
+        items.add(size++, item);
         return item;
     }
 
-    public Item[] findAll() {
-        return Arrays.copyOf(items, size);
+    public List<Item> findAll() {
+        return List.copyOf(items);
     }
 
-    public Item[] findByName(String key) {
-        Item[] itemsOfKey = new Item[size];
+    public List<Item> findByName(String key) {
+        List<Item> itemsOfKey = new ArrayList<Item>(size);
         int index2 = 0;
         for (int index = 0; index < size; index++) {
-            Item item = items[index];
+            Item item = items.get(index);
             if (item.getName().equals(key)) {
-                itemsOfKey[index2++] = item;
+                itemsOfKey.add(index2++, item);
             }
         }
-        itemsOfKey = Arrays.copyOf(itemsOfKey, index2);
+        itemsOfKey = List.copyOf(itemsOfKey);
         return itemsOfKey;
     }
 
     public Item findById(int id) {
         int index = indexOf(id);
-        return index != -1 ? items[index] : null;
+        return index != -1 ? items.get(index) : null;
     }
 
     private int indexOf(int id) {
         int rsl = -1;
         for (int index = 0; index < size; index++) {
-            if (items[index].getId() == id) {
+            if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
             }
@@ -89,7 +58,7 @@ public enum Tracker {
         boolean rsl = index != -1;
         if (rsl) {
             item.setId(id);
-            items[index] = item;
+            items.set(index, item);
         }
         return rsl;
     }
@@ -98,9 +67,10 @@ public enum Tracker {
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
-            items[index] = null;
-            System.arraycopy(items, index + 1, items, index, size - index);
-            items[size - 1] = null;
+            items.add(index, null);
+            Item[] arrayItems = items.toArray(new Item[items.size()]);
+            System.arraycopy(arrayItems, index + 1, arrayItems, index, size - index);
+            items.add(size - 1, null);
             size--;
         }
         return rsl;
