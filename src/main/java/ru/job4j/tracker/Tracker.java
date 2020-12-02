@@ -5,18 +5,13 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public enum Tracker {
-    INSTANCE;
-
-    List<Item> items = new ArrayList<Item>();
+public class Tracker {
+    private List<Item> items = new ArrayList<Item>();
     private int ids = 1;
-    private int size = 0;
-
 
     public Item add(Item item) {
         item.setId(ids++);
-        //items[size++] = item;
-        items.add(size++, item);
+        items.add(item);
         return item;
     }
 
@@ -25,16 +20,14 @@ public enum Tracker {
     }
 
     public List<Item> findByName(String key) {
-        List<Item> itemsOfKey = new ArrayList<Item>(size);
-        int index2 = 0;
-        for (int index = 0; index < size; index++) {
+        List<Item> itemsOfKey = new ArrayList<Item>(items.size());
+        for (int index = 0; index < items.size(); index++) {
             Item item = items.get(index);
             if (item.getName().equals(key)) {
-                itemsOfKey.add(index2++, item);
+                itemsOfKey.add(item);
             }
         }
-        itemsOfKey = List.copyOf(itemsOfKey);
-        return itemsOfKey;
+        return List.copyOf(itemsOfKey);
     }
 
     public Item findById(int id) {
@@ -44,7 +37,7 @@ public enum Tracker {
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
+        for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
@@ -67,11 +60,7 @@ public enum Tracker {
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
-            items.add(index, null);
-            Item[] arrayItems = items.toArray(new Item[items.size()]);
-            System.arraycopy(arrayItems, index + 1, arrayItems, index, size - index);
-            items.add(size - 1, null);
-            size--;
+            items.remove(index);
         }
         return rsl;
     }
