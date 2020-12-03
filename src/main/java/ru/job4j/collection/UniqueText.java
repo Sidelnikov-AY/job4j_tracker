@@ -18,6 +18,7 @@ public class UniqueText {
              ) {
             if (!check.contains(textWord)) {
                 rsl = false;
+                break;
             }
         }
         return rsl;
