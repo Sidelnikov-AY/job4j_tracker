@@ -20,37 +20,41 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        User findUser = null;
         for (User user : users.keySet()
              ) {
             if (user.getPassport().equals(passport)) {
-                findUser = user;
-                break;
-           }
+                return user;
+                }
         }
-        return findUser;
+        return null;
     }
 
     public Account findByRequisite(String passport, String requisite) {
         User foundUser = findByPassport(passport);
-        List<Account> accounts = users.get(foundUser);
-        Account needAcc = null;
-        if (!foundUser.equals(null)) {
+        if (foundUser != null) {
+            List<Account> accounts = users.get(foundUser);
             for (Account acc : accounts
             ) {
                 if (acc.getRequisite().contains(requisite)) {
-                    needAcc = acc;
-                    break;
-
+                    return acc;
                 }
             }
         }
-        return needAcc;
+        return null;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
+        Account srcAccount = findByRequisite(srcPassport, srcRequisite);
+        Account destAccount = findByRequisite(destPassport, destRequisite);
+        if (srcAccount == null || destAccount == null || srcAccount.getBalance() - amount < 0) {
+            return rsl;
+        } else {
+            destAccount.setBalance(destAccount.getBalance() + amount);
+            srcAccount.setBalance(srcAccount.getBalance() - amount);
+            rsl = true;
+        }
         return rsl;
     }
 }
