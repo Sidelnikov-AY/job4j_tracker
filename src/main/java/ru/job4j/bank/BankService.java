@@ -15,8 +15,10 @@ public class BankService {
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        if (!users.get(user).contains(account)) {
-            users.get(user).add(account);
+        if (user != null) {
+            if (!users.get(user).contains(account)) {
+                users.get(user).add(account);
+            }
         }
     }
 
@@ -46,16 +48,14 @@ public class BankService {
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
-        boolean rsl = false;
+
         Account srcAccount = findByRequisite(srcPassport, srcRequisite);
         Account destAccount = findByRequisite(destPassport, destRequisite);
         if (srcAccount == null || destAccount == null || srcAccount.getBalance() - amount < 0) {
-            return rsl;
-        } else {
-            destAccount.setBalance(destAccount.getBalance() + amount);
-            srcAccount.setBalance(srcAccount.getBalance() - amount);
-            rsl = true;
+            return false;
         }
-        return rsl;
+        destAccount.setBalance(destAccount.getBalance() + amount);
+        srcAccount.setBalance(srcAccount.getBalance() - amount);
+        return true;
     }
 }
