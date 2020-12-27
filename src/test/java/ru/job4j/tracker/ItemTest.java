@@ -24,6 +24,7 @@ public class ItemTest {
         assertThat(items, is(result));
     }
 
+
     @Test
     public void WhenSortedDown() {
         Item item1 = new Item(3, "ww");
