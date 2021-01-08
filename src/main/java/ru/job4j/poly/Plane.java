@@ -1,7 +1,7 @@
 package ru.job4j.poly;
 
 public class Plane implements Venicle {
-    int mspeed = 750;
+    private int mspeed = 750;
 
     public Plane() {
     }
@@ -9,8 +9,6 @@ public class Plane implements Venicle {
     public Plane(int mspeed) {
         this.mspeed = mspeed;
     }
-
-
 
     @Override
     public void move() {
@@ -20,6 +18,13 @@ public class Plane implements Venicle {
     @Override
     public void maxSpeed(int mspeed) {
         System.out.println("Максимальаня скорость: " + this.mspeed);
+    }
 
+    public int getMspeed() {
+        return mspeed;
+    }
+
+    public void setMspeed(int mspeed) {
+        this.mspeed = mspeed;
     }
 }

@@ -1,7 +1,7 @@
 package ru.job4j.ts;
 
 public class TrackerSingleTwo {
-    public static TrackerSingleTwo instance;
+    private static TrackerSingleTwo instance;
 
     private TrackerSingleTwo() {
     }
@@ -12,7 +12,6 @@ public class TrackerSingleTwo {
         }
         return instance;
     }
-
 
     public static void main(String[] args) {
         TrackerSingleTwo tracker = TrackerSingleTwo.getInstance();

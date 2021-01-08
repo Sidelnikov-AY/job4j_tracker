@@ -10,7 +10,6 @@ public class TrackerSingleThree {
         return INSTANCE;
     }
 
-
     public static void main(String[] args) {
         TrackerSingleThree tracker = TrackerSingleThree.getInstance();
         System.out.println(tracker);

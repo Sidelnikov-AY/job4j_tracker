@@ -20,7 +20,5 @@ public class MagicBall {
             answerText = "Может быть";
         }
         System.out.println(answerText);
-
-
     }
 }

@@ -1,7 +1,7 @@
 package ru.job4j.poly;
 
 public class Train implements Venicle {
-    int mspeed = 120;
+    private int mspeed = 120;
 
     public Train() {
     }
@@ -19,6 +19,14 @@ public class Train implements Venicle {
     @Override
     public void maxSpeed(int speed) {
         System.out.println("Максимальаня скорость: " + this.mspeed);
-
     }
+
+    public int getMspeed() {
+        return mspeed;
+    }
+
+    public void setMspeed(int mspeed) {
+        this.mspeed = mspeed;
+    }
+
 }

@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.is;
 
 public class ItemTest {
     @Test
-    public void WhenSortedUp() {
+    public void whenSortedUp() {
         Item item1 = new Item(3, "ww");
         Item item2 = new Item(2, "qq");
         Item item3 = new Item(1, "aa");
@@ -24,9 +24,8 @@ public class ItemTest {
         assertThat(items, is(result));
     }
 
-
     @Test
-    public void WhenSortedDown() {
+    public void whenSortedDown() {
         Item item1 = new Item(3, "ww");
         Item item2 = new Item(2, "qq");
         Item item3 = new Item(1, "aa");
@@ -38,5 +37,4 @@ public class ItemTest {
         Collections.sort(items, new SortByNameItem().reversed());
         assertThat(items, is(result));
     }
-
 }

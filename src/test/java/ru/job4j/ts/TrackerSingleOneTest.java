@@ -9,28 +9,28 @@ import static org.junit.Assert.assertThat;
 public class TrackerSingleOneTest {
 
     @Test
-    public void WhenTrackerSingleOneIsOne() {
+    public void whenTrackerSingleOneIsOne() {
         TrackerSingleOne tracker1 = TrackerSingleOne.INSTANCE;
         TrackerSingleOne tracker2 = TrackerSingleOne.INSTANCE;
         assertSame(tracker1, tracker2);
     }
 
     @Test
-    public void WhenTrackerSingleTwoIsOne() {
+    public void whenTrackerSingleTwoIsOne() {
         TrackerSingleTwo tracker1 = TrackerSingleTwo.getInstance();
         TrackerSingleTwo tracker2 = TrackerSingleTwo.getInstance();
         assertSame(tracker1, tracker2);
     }
 
     @Test
-    public void WhenTrackerSingleThreeIsOne() {
+    public void whenTrackerSingleThreeIsOne() {
         TrackerSingleThree tracker1 = TrackerSingleThree.getInstance();
         TrackerSingleThree tracker2 = TrackerSingleThree.getInstance();
         assertSame(tracker1, tracker2);
     }
 
     @Test
-    public void WhenTrackerSingleFourIsOne() {
+    public void whenTrackerSingleFourIsOne() {
         TrackerSingleFour tracker1 = TrackerSingleFour.getInstance();
         TrackerSingleFour tracker2 = TrackerSingleFour.getInstance();
         assertSame(tracker1, tracker2);

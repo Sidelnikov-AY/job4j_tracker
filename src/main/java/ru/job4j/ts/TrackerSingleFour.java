@@ -12,7 +12,6 @@ public class TrackerSingleFour {
         private static final TrackerSingleFour INSTANCE = new TrackerSingleFour();
     }
 
-
     public static void main(String[] args) {
         TrackerSingleFour tracker = TrackerSingleFour.getInstance();
         System.out.println(tracker);

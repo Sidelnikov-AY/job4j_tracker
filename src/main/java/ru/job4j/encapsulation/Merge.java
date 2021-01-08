@@ -8,7 +8,7 @@ public class Merge {
         int indexLeft = 0, indexRight = 0, indexRsl = 0;
         while (indexLeft < leftLength && indexRight < rightLength) {
             if (left[indexLeft] <= right[indexRight]) {
-                rsl[indexRsl]= left[indexLeft];
+                rsl[indexRsl] = left[indexLeft];
                 indexLeft++;
             } else {
                 rsl[indexRsl] = right[indexRight];

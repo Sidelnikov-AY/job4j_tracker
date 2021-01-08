@@ -66,12 +66,14 @@ public class ValidateInputTest {
         ValidateInput input = new ValidateInput(out, in);
         new StartUI(out).init(input, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. === Create ===" + System.lineSeparator() +
-                        "1. === Exit Program ===" + System.lineSeparator() +
+                "Menu." + System.lineSeparator()
+                        +
+                        "0. === Create ===" + System.lineSeparator()
+                        +
+                        "1. === Exit Program ===" + System.lineSeparator()
+                        +
                         "Please enter validate data again." + System.lineSeparator()
         ));
     }
-
 }
 

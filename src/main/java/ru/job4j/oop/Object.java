@@ -1,7 +1,7 @@
 package ru.job4j.oop;
 
 public class Object {
-    Freshman fresh = new Freshman();
-    Student freshStudent = fresh;
-    Object obj = fresh;
+    private Freshman fresh = new Freshman();
+    private Student freshStudent = fresh;
+    private Object obj = fresh;
 }

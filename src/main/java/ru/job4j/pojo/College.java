@@ -10,6 +10,7 @@ public class College {
         student.setGroup("I-12345");
         student.setDate(new Date());
 
-        System.out.println(student.getName() + " : " + student.getGroup() + " : " + student.getDate());
+        System.out.println(student.getName() + " : "
+                + student.getGroup() + " : " + student.getDate());
     }
 }
