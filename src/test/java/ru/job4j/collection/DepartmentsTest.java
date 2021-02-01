@@ -32,6 +32,7 @@ public class DepartmentsTest {
                 "k1", "k1/sk2", "k1/sk1/ssk2", "k1/sk1/ssk1", "k1/sk1");
         List<String> expect = Arrays.asList("k2", "k2/sk1", "k2/sk1/ssk1", "k2/sk1/ssk2", "k1",
                 "k1/sk1", "k1/sk1/ssk1", "k1/sk1/ssk2", "k1/sk2");
+
         Departments.sortAsc(input);
         assertThat(input, is(expect));
     }

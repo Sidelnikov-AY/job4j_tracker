@@ -29,11 +29,5 @@ public class Departments {
     public static void sortDesc(List<String> orgs) {
         orgs.sort(Comparator.naturalOrder());
     }
-
-    public static void main(String[] args) {
-        List<String> deps = Arrays.asList("K1/SK1/SSK1");
-        System.out.println("Исходный массив: " + deps);
-        System.out.println("Обработанный массив: " + fillGaps(deps));
-    }
 }
 
