@@ -21,12 +21,12 @@ public class Departments {
         return new ArrayList<>(tmp);
     }
 
-    public static void sortAsc(List<String> orgs) {
+    public static void sortDesc(List<String> orgs) {
         Comparator<String> dep = new DepDescComp();
         orgs.sort(dep);
     }
 
-    public static void sortDesc(List<String> orgs) {
+    public static void sortAsc(List<String> orgs) {
         orgs.sort(Comparator.naturalOrder());
     }
 }
