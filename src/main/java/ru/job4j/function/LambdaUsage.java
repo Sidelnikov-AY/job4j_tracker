@@ -12,7 +12,7 @@ public class LambdaUsage {
         };
         Comparator<String> cmpDescSize = (left, right) -> {
             System.out.println("compare - " + right.length() + " : " + left.length());
-            return right.length() - left.length();
+            return Integer.compare(right.length(), left.length());
         };
         Arrays.sort(text, cmpText);
         for (String s:
