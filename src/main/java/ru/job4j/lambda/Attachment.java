@@ -17,11 +17,12 @@ public class Attachment {
         return size;
     }
 
+    @SuppressWarnings("checkstyle:OperatorWrap")
     @Override
     public String toString() {
-        return "{" +
-                "name='" + name + '\'' +
-                ", size=" + size +
-                '}';
+        return "{"
+                + "name='" + name + '\''
+                + ", size=" + size
+                + '}';
     }
 }

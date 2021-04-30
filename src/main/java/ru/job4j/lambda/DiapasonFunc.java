@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Function;
 
-
 public class DiapasonFunc {
 
     public static List<Double> diapason(int start, int end, Function<Double, Double> func) {
