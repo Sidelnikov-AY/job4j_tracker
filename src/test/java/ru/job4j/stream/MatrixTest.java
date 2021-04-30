@@ -6,7 +6,7 @@ import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
-import static ru.job4j.stream.Matrix.MatrixToList;
+import static ru.job4j.stream.Matrix.matrixToList;
 
 public class MatrixTest {
 
@@ -20,7 +20,7 @@ public class MatrixTest {
         m[1][1] = 5;
         m[1][2] = 6;
 
-        List<Integer> rsl = MatrixToList(m);
+        List<Integer> rsl = matrixToList(m);
         List<Integer> expected = List.of(1, 2, 3, 4, 5, 6);
         assertThat(rsl, is(expected));
     }

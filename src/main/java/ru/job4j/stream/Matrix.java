@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Matrix {
-    public static List<Integer> MatrixToList(Integer[][] matrix) {
+    public static List<Integer> matrixToList(Integer[][] matrix) {
         return Arrays.stream(matrix).flatMap(Arrays::stream).collect(Collectors.toList());
     }
 
@@ -25,7 +25,7 @@ public class Matrix {
             System.out.println();
         }
 
-        List<Integer> flat = MatrixToList(m);
+        List<Integer> flat = matrixToList(m);
         System.out.println(flat);
 
     }

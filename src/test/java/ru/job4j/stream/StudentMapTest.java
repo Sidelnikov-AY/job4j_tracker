@@ -28,7 +28,7 @@ public class StudentMapTest {
             expected.put(student.getSurname(), student);
         }
         StudentMap sm = new StudentMap();
-        Map<String, Student>  rsl = sm.CollectToMap(students);
+        Map<String, Student>  rsl = sm.collectToMap(students);
         assertThat(rsl, is(expected));
     }
 }
