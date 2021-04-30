@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class ProfilesTest {
 
     @Test
-    public void WhenCollectedAndDeleteCopies() {
+    public void whenCollectedAndDeleteCopies() {
         List<Profile> prof = List.of(
                 new Profile(new Address("moscow", "lubyanka", 21, 45)),
                 new Profile(new Address("moscow", "lubyanka", 21, 45)),
@@ -26,7 +26,7 @@ public class ProfilesTest {
     }
 
     @Test
-    public void WhenZero() {
+    public void whenZero() {
         List<Profile> prof = List.of();
         Profiles ps = new Profiles();
         List<Address> rsl = ps.collect(prof);

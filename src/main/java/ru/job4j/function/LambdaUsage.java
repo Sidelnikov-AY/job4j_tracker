@@ -15,13 +15,11 @@ public class LambdaUsage {
             return Integer.compare(right.length(), left.length());
         };
         Arrays.sort(text, cmpText);
-        for (String s:
-             text) {
+        for (String s: text) {
             System.out.println(s);
         }
         Arrays.sort(text, cmpDescSize);
-        for (String s:
-                text) {
+        for (String s: text) {
             System.out.println(s);
         }
     }

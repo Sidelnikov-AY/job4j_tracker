@@ -11,7 +11,7 @@ import static ru.job4j.stream.Matrix.matrixToList;
 public class MatrixTest {
 
     @Test
-    public void WhenListGenerated() {
+    public void whenListGenerated() {
         Integer[][] m = new Integer[2][3];
         m[0][0] = 1;
         m[0][1] = 2;
