@@ -3,6 +3,7 @@ package ru.job4j.map;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class College {
     private final Map<Student, Set<Subject>> students;
@@ -13,12 +14,10 @@ public class College {
 
     public Optional<Student> findByAccount(String account) {
         Optional<Student> rsl = Optional.empty();
-        for (Student s: students.keySet()) {
-            if (account.equals(s.getAccount())) {
-                rsl = Optional.of(s);
-                break;
-            }
-        }
+        rsl = students.keySet()
+                .stream()
+                .filter(s -> account.equals(s.getAccount()))
+                        .findFirst();
         return rsl;
     }
 
@@ -27,13 +26,9 @@ public class College {
         Optional<Student> stud = findByAccount(account);
         if (stud.isPresent()) {
             Set<Subject> subjects = students.get(stud.get());
-            System.out.println(subjects);
-            for (Subject subj : subjects) {
-                if (name.equals(subj.getName())) {
-                    rsl = Optional.of(subj);
-                    break;
-                }
-            }
+            rsl = subjects.stream()
+                    .filter(subj -> name.equals(subj.getName()))
+                    .findFirst();
         }
         return rsl;
     }
