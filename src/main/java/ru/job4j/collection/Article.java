@@ -1,15 +1,16 @@
 package ru.job4j.collection;
 
-import org.w3c.dom.ls.LSOutput;
 
 import java.util.*;
 
 public class Article {
     public static boolean generateBy(String origin, String line) {
         Set<String> setFromOrigin = new HashSet<>();
-        List<String> inOrigin = new ArrayList<>(Arrays.asList(origin.split("\\s|,|!|;|:|\\.")));
+        origin = origin.replaceAll("\\p{P}", "");
+        List<String> inOrigin = new ArrayList<>(Arrays.asList(origin.split(" ")));
         setFromOrigin.addAll(inOrigin);
-        List<String> inLine = new ArrayList<>(Arrays.asList(line.split(" ")));
+        line = line.replaceAll("\\p{P}", "");
+        String[] inLine = line.split(" ");
         boolean check = true;
         for (String word : inLine) {
             if (!setFromOrigin.contains(word)) {
