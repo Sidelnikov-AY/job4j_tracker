@@ -51,7 +51,6 @@ public class Analyze {
                 .entrySet()
                 .stream()
                 .map(pupil -> new Tuple(pupil.getKey(), pupil.getValue()))
-                .sorted(Comparator.comparing(Tuple::hashCode).reversed())
                 .max(Comparator.comparing(Tuple::getScore))
                 .orElse(null);
     }
