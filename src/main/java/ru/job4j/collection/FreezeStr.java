@@ -8,7 +8,6 @@ public class FreezeStr {
         char[] leftCharArray = left.toCharArray();
         char[] rightCharArray = right.toCharArray();
         Map<Character, Integer> leftMap = new HashMap<>();
-        Map<Character, Integer> rightMap = new HashMap<>();
 
         for (char c : leftCharArray) {
             int counter = 1;
@@ -18,24 +17,16 @@ public class FreezeStr {
             }
             leftMap.put(c, counter);
         }
-
         for (char c : rightCharArray) {
-            int counter2 = 1;
-            if (rightMap.containsKey(c)) {
-                counter2 = rightMap.get(c);
-                counter2++;
-            }
-            rightMap.put(c, counter2);
-        }
-
-        if (rightMap.size() != leftMap.size()) {
-            return false;
-        }
-        for (char c : leftMap.keySet()) {
-            if (!rightMap.containsKey(c) || !leftMap.get(c).equals(rightMap.get(c))) {
+            if (!leftMap.containsKey(c)) {
                 return false;
             }
+            if (leftMap.containsKey(c) && leftMap.get(c) > 1) {
+                leftMap.put(c, leftMap.get(c) - 1);
+            } else {
+                leftMap.remove(c);
+            }
         }
-        return true;
+        return leftMap.isEmpty();
     }
 }
