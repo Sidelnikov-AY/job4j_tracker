@@ -21,6 +21,7 @@ public class FreezeStr {
             if (!leftMap.containsKey(c)) {
                 return false;
             }
+
             if (leftMap.containsKey(c) && leftMap.get(c) > 1) {
                 leftMap.put(c, leftMap.get(c) - 1);
             } else {
