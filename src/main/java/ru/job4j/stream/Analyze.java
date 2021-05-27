@@ -2,6 +2,7 @@ package ru.job4j.stream;
 
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -9,8 +10,7 @@ import java.util.stream.Stream;
 public class Analyze {
 
     public static double averageScore(Stream<Pupil> stream) {
-        return stream.map(Pupil::getSubjects)
-               .flatMap(Collection::stream)
+        return stream.flatMap(pupil -> pupil.getSubjects().stream())
                .mapToInt(Subject::getScore).average().orElse(0D);
     }
 
@@ -24,13 +24,12 @@ public class Analyze {
 
     public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
         return stream
-                .flatMap(subject -> subject.getSubjects().stream())
-                .collect(Collectors.groupingBy(Subject::getName, Collectors
-                .averagingDouble(Subject::getScore)))
-                .entrySet()
-                .stream()
-                .map(pupil -> new Tuple(pupil.getKey(), pupil.getValue()))
-                .sorted(Comparator.comparing(Tuple::hashCode).reversed())
+                .flatMap(pupil -> pupil.getSubjects().stream())
+                .collect(Collectors.groupingBy(Subject::getName,
+                                                        LinkedHashMap::new,
+                                                        Collectors.averagingDouble(Subject::getScore)))
+                .entrySet().stream()
+                .map(entry -> new Tuple(entry.getKey(), entry.getValue()))
                 .collect(Collectors.toList());
     }
 
