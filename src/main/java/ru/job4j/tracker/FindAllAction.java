@@ -17,9 +17,13 @@ public class FindAllAction implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         List<Item> showItem = tracker.findAll();
-        for (Item item : showItem) {
-            out.println(item);
-        }
-        return true;
+        if (showItem.size() > 0) {
+            for (Item item : showItem) {
+                out.println(item);
+            }
+        } else {
+                System.out.println("Хранилище еще не содержит заявок");
+            }
+         return true;
     }
 }
