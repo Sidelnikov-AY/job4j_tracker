@@ -34,12 +34,6 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-//        Item first = new Item();
-//        LocalDateTime currentTime = first.getCreatedTime();
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
-//        String currentDateTimeFormatted = currentTime.format(formatter);
-//        //System.out.println(currentDateTimeFormatted);
-
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
