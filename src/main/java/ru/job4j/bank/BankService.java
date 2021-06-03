@@ -83,7 +83,8 @@ public class BankService {
 
         Optional<Account> srcAccount = findByRequisite(srcPassport, srcRequisite);
         Optional<Account> destAccount = findByRequisite(destPassport, destRequisite);
-        if (srcAccount.isEmpty() || destAccount.isEmpty() || srcAccount.get().getBalance() - amount < 0) {
+        if (srcAccount.isEmpty() || destAccount.isEmpty()
+                || srcAccount.get().getBalance() - amount < 0) {
             return false;
         }
         destAccount.get().setBalance(destAccount.get().getBalance() + amount);
