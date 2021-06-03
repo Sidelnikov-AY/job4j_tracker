@@ -13,7 +13,6 @@ public class EasyStream {
     }
 
     public static EasyStream of(List<Integer> source) {
-        //throw new UnsupportedOperationException();
         return new EasyStream(source);
     }
 
